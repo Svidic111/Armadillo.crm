@@ -1,4 +1,4 @@
-package com.armadillo.crm.entities;
+package com.armadillo.crm.entities.enums;
 
 import java.util.HashMap;
 import java.util.Map;

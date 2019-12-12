@@ -1,9 +1,10 @@
 package com.armadillo.crm.entities;
 
+import com.armadillo.crm.entities.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
 @Data
