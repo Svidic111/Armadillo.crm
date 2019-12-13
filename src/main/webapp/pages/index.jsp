@@ -2,9 +2,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Bank App</title>
+    <title>CRM</title>
 </head>
 <body>
-<h1>Welcome!</h1>
+<h1>Welcome to CRM!</h1>
+<a href="<c:url value="customers"/>">Customers</a>
 </body>
 </html>
