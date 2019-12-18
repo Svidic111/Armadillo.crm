@@ -3,7 +3,9 @@ package com.armadillo.crm.controllers;
 import com.armadillo.crm.entities.Company;
 import com.armadillo.crm.entities.Customer;
 import com.armadillo.crm.entities.enums.Gender;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -45,5 +47,10 @@ public class CustomerController {
         modelAndView.setViewName("customerAll");
 
         return modelAndView;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "deleteCustomerPopUp/{customerId}")
+    public String getDeleteCustomerPopUp(@PathVariable("customerId") int customerId){
+        return "deleteCustomerPopUp";
     }
 }
