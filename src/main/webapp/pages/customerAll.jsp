@@ -4,32 +4,48 @@
 <html>
 <head>
     <title>CRM</title>
+    <style>
+        DIV.customersTable
+        {
+            display:table; width: 100%;
+        }
+
+        FORM.tr, DIV.tr
+        {
+            display:table-row;
+            padding: 10px;
+            margin: 10px;
+        }
+        SPAN.td
+        {
+            display:table-cell;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+        }
+        SPAN.th
+        {
+            display:table-cell;
+            font-weight: bold;
+            text-align: center;
+        }
+        .actionButtons{
+            background-color: lightslategrey;
+            color: white;
+            border-style: none;
+        }
+        .addCustomerButtonContainer{
+            width: 100%;
+            padding-left: 88%;
+            padding-bottom: 30px;
+        }
+    </style>
 </head>
 <body>
-<style>
-    DIV.customersTable
-    {
-        display:table; width: 100%;;
-    }
-
-    FORM.tr, DIV.tr
-    {
-        display:table-row;
-        padding: 10px;
-        margin: 10px;
-    }
-    SPAN.td
-    {
-        display:table-cell;
-        padding: 10px;
-        margin: 10px;
-    }
-    SPAN.th
-    {
-        display:table-cell;
-        font-weight: bold;
-    }
-</style>
+<jsp:include page="header.jsp" />
+<div class="addCustomerButtonContainer">
+    <input class="actionButtons" type="button" onclick="location.href='add';" value="Add new customer"/>
+</div>
 <div class="customersTable">
     <div class="tr">
         <span class="th">First name</span>
@@ -49,14 +65,13 @@
             <span class="td"><c:out value="${customer.email}"/> </span>
             <span class="td"><c:out value="${customer.phoneNumber}"/> </span>
             <span class="td"><c:out value="${customer.company.name}"/> </span>
-            <span class="td"><input type="button" onclick="location.href='deals/${customer.id}'" value="View deals"/>
-                <input type="button" onclick="location.href='edit${customer.id}'" value="Edit"/>
+            <span class="td"><input class="actionButtons" type="button" onclick="location.href='deals/${customer.id}'" value="View deals"/>
+                <input class="actionButtons" type="button" onclick="location.href='edit${customer.id}'" value="Edit"/>
                <%-- <input type="button" onclick="location.href='delete/${customer.id}'" value="Delete"/>--%>
-                <input type="button" onclick='javascript:window.open("customers/deleteCustomerPopUp/${customer.id}", "_blank", "scrollbars=0,resizable=0,height=150,width=450");' title='Pop Up' value="Delete"/>
+                <input class="actionButtons" type="button" onclick='javascript:window.open("customers/deleteCustomerPopUp/${customer.id}", "_blank", "scrollbars = 0, resizable = 0, height = 150, width = 450");' title='Pop Up' value="Delete"/>
         </form:form>
     </c:forEach>
 </div>
 
-<input type="button" onclick="location.href='add';" value="Add new customer"/>
 </body>
 </html>

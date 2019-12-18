@@ -3,7 +3,6 @@ package com.armadillo.crm.controllers;
 import com.armadillo.crm.entities.Company;
 import com.armadillo.crm.entities.Customer;
 import com.armadillo.crm.entities.enums.Gender;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +20,10 @@ public class CustomerController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getAllUsers(){
+
+         /* This is the test code. Will be replaced by real code
+          that gets data from the database*/
+
         Customer customer = new Customer();
         customer.setFirstName("Vadim");
         customer.setLastName("Martsun");
