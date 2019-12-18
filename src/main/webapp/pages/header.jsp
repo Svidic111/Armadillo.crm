@@ -18,11 +18,12 @@
 </head>
 <body>
 <div class="links">
-    <input class="menuButtons" type="button" onclick="location.href='managers'" value="Managers"/>
-    <input class="menuButtons" type="button" onclick="location.href='customers'" value="Customers"/>
-    <input class="menuButtons" type="button" onclick="location.href='companies'" value="Companies"/>
-    <input class="menuButtons" type="button" onclick="location.href='deals'" value="Deals"/>
-    <input class="menuButtons" type="button" onclick="location.href='tasks'" value="Tasks"/>
+    <spring:eval expression="@environment.getProperty('server.port')" var="port" />
+    <input class="menuButtons" type="button" onclick="location.href='http://localhost:8088/managers'" value="Managers"/>
+    <input class="menuButtons" type="button" onclick="location.href='http://localhost:8088/customers'" value="Customers"/>
+    <input class="menuButtons" type="button" onclick="location.href='http://localhost:8088/companies'" value="Companies"/>
+    <input class="menuButtons" type="button" onclick="location.href='http://localhost:8088/deals'" value="Deals"/>
+    <input class="menuButtons" type="button" onclick="location.href='http://localhost:8088/tasks'" value="Tasks"/>
 </div>
 </body>
 </html>

@@ -44,7 +44,7 @@
 <body>
 <jsp:include page="header.jsp" />
 <div class="addCustomerButtonContainer">
-    <input class="actionButtons" type="button" onclick="location.href='add';" value="Add new customer"/>
+    <input class="actionButtons" type="button" onclick="location.href='customers/add';" value="Add new customer"/>
 </div>
 <div class="customersTable">
     <div class="tr">
