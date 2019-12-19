@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity(name = "tasks")
+@Entity(name = "task")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

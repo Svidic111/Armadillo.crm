@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-@Entity(name = "customers")
+@Entity(name = "customer")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

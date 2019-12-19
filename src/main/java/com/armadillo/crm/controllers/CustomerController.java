@@ -3,8 +3,11 @@ package com.armadillo.crm.controllers;
 import com.armadillo.crm.entities.Company;
 import com.armadillo.crm.entities.Customer;
 import com.armadillo.crm.entities.enums.Gender;
+import com.armadillo.crm.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,10 +17,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/customers")
 public class CustomerController {
+    @Autowired
+    CustomerService customerService;
+
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getAllUsers(){
@@ -47,11 +54,28 @@ public class CustomerController {
         customers.add(customer);
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("customers",customers);
+        modelAndView.addObject("customers", customers);
         modelAndView.setViewName("customerAll");
 
         return modelAndView;
     }
+
+
+    @GetMapping(path = "/{id}")
+    public ModelAndView getCustomer(@PathVariable String id) {
+        Optional<Customer> customer = customerService.getCustomer(Integer.parseInt(id));
+
+        Customer returnValue = new Customer();
+        if (customer.isPresent()) {
+            returnValue = customer.get();
+        }
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("customer", returnValue);
+        modelAndView.setViewName("customer");
+
+        return modelAndView;
+    }
+
 
     @RequestMapping(value = "deleteCustomerPopUp/{customerId}", method = RequestMethod.GET)
     public String getDeleteCustomerPopUp(@PathVariable("customerId") int customerId){
