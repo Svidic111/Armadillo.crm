@@ -1,5 +1,18 @@
 package com.armadillo.crm.entities.enums;
 
 public enum TaskStatus {
-    WAITING, IN_WORK, DONE, CANSELED
+    NEW("New"),
+    DONE("Done"),
+    CANCELED("Canceled"),
+    OUTDATED("Outdated");
+
+    private String status;
+
+    TaskStatus(String status){
+        this.status = status;
+    }
+
+    public String getStatus(){
+        return status;
+    }
 }

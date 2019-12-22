@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity(name = "tasks")
@@ -18,10 +19,10 @@ public class Task {
     private Integer id;
 
     @Column(nullable = false)
-    private Date creationDate;
+    private LocalDate creationDate;
 
     @Column
-    private Date scheduledDate;
+    private LocalDate scheduledDate;
 
     @Column
     private TaskStatus status;

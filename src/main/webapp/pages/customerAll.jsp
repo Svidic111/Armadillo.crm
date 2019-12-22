@@ -68,7 +68,7 @@
             <span class="td"><input class="actionButtons" type="button" onclick="location.href='deals/${customer.id}'" value="View deals"/>
                 <input class="actionButtons" type="button" onclick="location.href='edit${customer.id}'" value="Edit"/>
                <%-- <input type="button" onclick="location.href='delete/${customer.id}'" value="Delete"/>--%>
-                <input class="actionButtons" type="button" onclick='javascript:window.open("customers/deleteCustomerPopUp/${customer.id}", "_blank", "scrollbars = 0, resizable = 0, height = 150, width = 450");' title='Pop Up' value="Delete"/>
+                <input class="actionButtons" type="button" onclick='javascript:window.open("customers/deleteCustomerPopUp/${customer.id}", "_blank", "scrollbars = 0, resizable = 0, height = 150, width = 450");' title='Pop Up' value="Delete"/></span>
         </form:form>
     </c:forEach>
 </div>

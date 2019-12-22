@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class Customer {
     private String lastName;
 
     @Column
-    private Date birthDate;
+    private LocalDate birthDate;
 
     @Column(length = 40)
     private Gender gender;

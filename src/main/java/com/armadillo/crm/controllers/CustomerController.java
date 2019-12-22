@@ -3,6 +3,8 @@ package com.armadillo.crm.controllers;
 import com.armadillo.crm.entities.Company;
 import com.armadillo.crm.entities.Customer;
 import com.armadillo.crm.entities.enums.Gender;
+import com.armadillo.crm.mock.personMock.PersonMock;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,13 +21,16 @@ import java.util.List;
 @RequestMapping("/customers")
 public class CustomerController {
 
+    @Autowired
+    private PersonMock personMock;
+
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getAllUsers(){
 
          /* This is the test code. Will be replaced by real code
           that gets data from the database*/
 
-        Customer customer = new Customer();
+        /*Customer customer = new Customer();
         customer.setFirstName("Vadim");
         customer.setLastName("Martsun");
         try {
@@ -44,7 +49,9 @@ public class CustomerController {
         customer.setCompany(company);
 
         List<Customer> customers = new ArrayList<>();
-        customers.add(customer);
+        customers.add(customer);*/
+
+        List<Customer> customers = personMock.getRandomCustomers(10);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("customers",customers);
