@@ -7,10 +7,7 @@ import com.armadillo.crm.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.text.ParseException;
@@ -26,7 +23,7 @@ public class CustomerController {
     CustomerService customerService;
 
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView getAllUsers(){
 
          /* This is the test code. Will be replaced by real code
@@ -58,6 +55,8 @@ public class CustomerController {
         modelAndView.setViewName("customerAll");
 
         return modelAndView;
+
+
     }
 
 
@@ -83,10 +82,18 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public ModelAndView getAddCustomerPage(Model model){
+    public ModelAndView addCustomerPage(Model model) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("customer", new Customer());
         modelAndView.setViewName("addCustomer");
         return modelAndView;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/add_customer")
+    public String saveClient(@ModelAttribute("customer") Customer customer) {
+
+        customerService.saveCustomer(customer);
+
+        return "redirect:list";
     }
 }

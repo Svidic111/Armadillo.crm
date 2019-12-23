@@ -6,4 +6,6 @@ import java.util.Optional;
 
 public interface CustomerService {
     Optional<Customer> getCustomer(Integer id);
+
+    void saveCustomer(Customer customer);
 }

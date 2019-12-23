@@ -6,6 +6,6 @@
 </head>
 <body>
 <h1>Welcome to CRM!</h1>
-<a href="<c:url value="customers"/>">Customers</a>
+<a href="<c:url value="customers/list"/>">Customers</a>
 </body>
 </html>

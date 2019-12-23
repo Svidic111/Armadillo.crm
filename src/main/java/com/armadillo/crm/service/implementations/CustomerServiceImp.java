@@ -18,4 +18,10 @@ public class CustomerServiceImp implements CustomerService {
     public Optional<Customer> getCustomer(Integer id) {
         return customerRepository.findById(id);
     }
+
+
+    @Override
+    public void saveCustomer(Customer customer) {
+        customerRepository.save(customer);
+    }
 }

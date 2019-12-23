@@ -13,7 +13,7 @@
 <body>
 <jsp:include page="header.jsp" />
 <div class="table">
-    <form:form modelAttribute="customer" action="addCustomer" method="post">
+    <form:form modelAttribute="customer" action="add_customer" method="post">
         <table>
             <tr>
                 <td><form:label path="firstName">First Name: </form:label></td>
