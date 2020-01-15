@@ -36,6 +36,9 @@
             margin-left: 5%;
             margin-bottom: 5%;
         }
+        .tasksCounter{
+            text-align: center;
+        }
         .cardStatus{
             text-align: center;
         }
@@ -110,6 +113,7 @@
 
         h2{
             text-align: center;
+            font-size: medium;
         }
         .controlButtons{
             padding-top: 15px;
@@ -142,6 +146,16 @@
 <div class="tasks">
     <div class="outdatedCards">
         <h2>Outdated Tasks</h2>
+        <c:if test="${tasks.outdatedTasks.size() == 0}">
+            <div class="noTaskMessage">
+                <p>Congratulations! You have no outdated tasks.</p>
+            </div>
+        </c:if>
+        <c:if test="${tasks.outdatedTasks.size() != 0}">
+            <div class="tasksCounter">
+                <p><c:out value="${tasks.outdatedTasks.size()}"/> tasks</p>
+            </div>
+        </c:if>
         <c:forEach items="${tasks.outdatedTasks}" var="task">
         <form:form modelAttribute="task" method="post">
         <div class="card">
@@ -159,7 +173,7 @@
             </div>
 
             <div class="bottomCard">
-                <div class="managerName"><a href="customer.jsp"><c:out value="${task.deal.manager.firstName} ${task.deal.manager.lastName}"/></a></div>
+                <div class="managerName"><a href="customer.jsp"><c:out value="${task.deal.manager.firstName} ${task.deal.manager.lastName}"/></a><p><c:out value="— ${task.scheduledDate}"/></p></div>
                 <div class="controlButtons">
                     <div class="companyLink"><a href="">Netpeak Software</a></div>
                     <input class="controlButton" type="button" onclick="location.href=''" value="View deal"/>
